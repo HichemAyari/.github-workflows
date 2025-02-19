@@ -3,22 +3,14 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    services:
-      docker:
-        image: docker:19.03.12
-        options: --privileged
-        ports:
-          - 5000:5000
-          - 80:80
 
     steps:
       - name: Checkout code
@@ -42,6 +34,4 @@ jobs:
 
       - name: Deploy to Production
         run: |
-          # Ajoutez ici les commandes pour déployer votre application
-          # Par exemple, utiliser SSH pour se connecter à votre serveur et déployer
           echo "Déploiement en production"
